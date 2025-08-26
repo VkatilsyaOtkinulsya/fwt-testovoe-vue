@@ -1,0 +1,31 @@
+@use "variables";
+
+:root,
+.theme-dark {
+  --primary-bg: #{variables.$primary-black};
+  --primary-text: #{variables.$primary-white};
+  --primary-border: #{variables.$primary-dark-grey};
+  --primary-muted: #{variables.$primary-light-grey};
+
+  --secondary-bg: #{variables.$secondary-black};
+  --secondary-text: #{variables.$secondary-white};
+  --secondary-muted: #{variables.$secondary-grey};
+
+  --accent-color: #{variables.$accent-gold};
+  --accent-red: #{variables.$accent-red};
+  --accent-hover: #{adjust-lightness(variables.$accent-gold, 10%)};
+}
+
+.theme-light {
+  --primary-bg: #{variables.$primary-white};
+  --primary-text: #{variables.$primary-black};
+  --primary-border: #{variables.$primary-light-grey};
+  --primary-muted: #{variables.$primary-dark-grey};
+
+  --secondary-bg: #{variables.$secondary-white};
+  --secondary-text: #{variables.$secondary-black};
+  --secondary-muted: #{variables.$secondary-grey};
+
+  --accent-color: #{variables.$accent-red};
+  --accent-hover: #{adjust-lightness(variables.$accent-red, 10%)};
+}

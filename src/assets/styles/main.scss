@@ -1,0 +1,45 @@
+@use "reset";
+
+* {
+  transition:
+    background-color var(--transition-duration),
+    color var(--transition-duration),
+    border-color var(--transition-duration);
+
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: block;
+  box-sizing: border-box;
+
+  @media (min-width: 1440px) {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  @include laptop {
+    margin: 0 20px;
+  }
+
+  @include tablet {
+    margin: 0 20px;
+  }
+
+  @include mobile {
+    margin: 0 20px;
+  }
+}

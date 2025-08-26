@@ -20,7 +20,7 @@ const vueAirbnbMisc = compat.extends("@vue/eslint-config-airbnb/rules/misc");
 export default defineConfigWithVueTs(
   {
     name: "app/src-only",
-    files: ["src/**/*.{ts,tsx,vue}"],
+    files: ["src/**/*.{ts,tsx,vue}"]
   },
 
   globalIgnores(["**/dist/**", "**/dist-ssr/**", "**/coverage/**", "**/*.config.*"]),
@@ -41,14 +41,14 @@ export default defineConfigWithVueTs(
         extraFileExtensions: [".vue"],
         ecmaVersion: "latest",
         sourceType: "module",
-        parser: "@typescript-eslint/parser",
-      },
+        parser: "@typescript-eslint/parser"
+      }
     },
 
     plugins: {
       prettier: pluginPrettier,
       import: pluginImport,
-      vue: pluginVue,
+      vue: pluginVue
     },
     rules: {
       "prettier/prettier": [
@@ -58,10 +58,10 @@ export default defineConfigWithVueTs(
           tabWidth: 2,
           useTabs: false,
           singleQuote: false,
-          trailingComma: "es5",
-        },
+          trailingComma: "none"
+        }
       ],
-      "vue/multi-word-component-names": "off",
-    },
-  },
+      "vue/multi-word-component-names": "off"
+    }
+  }
 );
