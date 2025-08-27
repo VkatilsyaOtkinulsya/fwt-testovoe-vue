@@ -7,14 +7,12 @@ const animate = ref(false);
 </script>
 
 <template>
-  <div :class="['card', animate ? 'text-animation' : '']">
+  <div
+    :class="['card', animate ? 'text-animation' : '']"
+    :style="`background-image: url(${paint.imageUrl})`"
+  >
     <button class="play" type="button" @click="animate = !animate"></button>
-    <img
-      loading="lazy"
-      :src="`${paint.imageUrl}?q=70&w=800`"
-      :alt="paint.name"
-      class="card-image"
-    />
+
     <div class="card-text">
       <div class="author-info">
         <p class="name">{{ paint.authorName }}</p>
@@ -37,7 +35,7 @@ const animate = ref(false);
   aspect-ratio: 16 / 9;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   overflow: hidden;
   z-index: 4;
   transition: all 0.3s ease-in-out;
@@ -63,16 +61,6 @@ const animate = ref(false);
   &:hover {
     opacity: 0.7;
   }
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-
-  border-bottom: 1px solid transparent;
-  border-left: 1px solid transparent;
 }
 
 .card-text {
