@@ -109,6 +109,7 @@ const animate = ref(false);
     font-weight: 500;
     overflow: hidden;
     display: -webkit-box;
+    -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
