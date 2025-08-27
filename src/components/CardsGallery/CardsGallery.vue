@@ -7,9 +7,7 @@ const store = usePaintingsStore();
 
 <template>
   <div v-if="store.enrichedItems.length" class="cards-gallery">
-    <Card v-for="paint in store.enrichedItems" :key="paint.id" :paint>
-      <p>{{ paint.authorName }}</p>
-    </Card>
+    <Card v-for="paint in store.enrichedItems" :key="paint.id" :paint />
   </div>
   <div v-else class="gallery-no-matches">
     <span class="no-matches">No matches for {{ store.search }}</span>

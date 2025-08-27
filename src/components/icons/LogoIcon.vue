@@ -2,14 +2,12 @@
 import { computed } from "vue";
 
 interface Props {
-  theme?: "dark" | "light";
+  theme: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  theme: "dark"
-});
+const props = defineProps<Props>();
 
-const fillColor = computed(() => (props.theme === "light" ? "#DEDEDE" : "#FFFFFF"));
+const fillColor = computed(() => (props.theme ? "#FFFFFF" : "#575757"));
 </script>
 
 <template>

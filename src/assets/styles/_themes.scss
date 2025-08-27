@@ -1,11 +1,12 @@
 @use "variables";
 
-:root,
-.theme-dark {
+:root {
   --primary-bg: #{variables.$primary-black};
   --primary-text: #{variables.$primary-white};
   --primary-border: #{variables.$primary-dark-grey};
   --primary-muted: #{variables.$primary-light-grey};
+
+  --play-white: #{variables.$primary-light-grey};
 
   --secondary-bg: #{variables.$secondary-black};
   --secondary-text: #{variables.$secondary-white};

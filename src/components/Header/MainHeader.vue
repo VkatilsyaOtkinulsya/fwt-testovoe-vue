@@ -1,17 +1,22 @@
 <script setup lang="ts">
+import { useThemeStore } from "@/stores/themeStore.ts";
 import LogoIcon from "../icons/LogoIcon.vue";
 import ThemeIcon from "../icons/ThemeIcon.vue";
 import ToggleThemeButton from "../ui/button/ToggleThemeButton.vue";
+import { computed } from "vue";
+
+const themeStore = useThemeStore();
+const theme = computed(() => (themeStore.theme === "dark" ? true : false));
 </script>
 
 <template>
   <header class="header">
     <div class="logo">
-      <LogoIcon />
+      <LogoIcon :theme="theme" />
     </div>
     <div>
       <ToggleThemeButton>
-        <ThemeIcon :is-dark="true" />
+        <ThemeIcon :theme="theme" />
       </ToggleThemeButton>
     </div>
   </header>

@@ -1,9 +1,19 @@
 <script setup lang="ts">
-defineEmits(["click"]);
+import { useThemeStore } from "@/stores/themeStore.ts";
+
+const themeStore = useThemeStore();
+
+function toggle() {
+  themeStore.toggleTheme();
+}
 </script>
 
 <template>
-  <button type="button" class="toggle-btn" @click="$emit('click')">
+  <button
+    type="button"
+    :class="['toggle-btn', themeStore.theme === 'light' ? 'theme-light' : '']"
+    @click="toggle"
+  >
     <slot></slot>
   </button>
 </template>
@@ -17,5 +27,11 @@ defineEmits(["click"]);
   height: 40px;
   border-radius: 20px;
   background-color: var(--secondary-bg);
+}
+
+.theme-light {
+  &:hover {
+    background-color: #f3f3f3;
+  }
 }
 </style>

@@ -1,4 +1,5 @@
 @use "reset";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   transition:
@@ -20,10 +21,14 @@ body {
 .container {
   display: block;
   box-sizing: border-box;
+  margin: 0 20px; // mobile first
 
-  @media (min-width: 1440px) {
-    max-width: 1240px;
-    margin: 0 auto;
+  @include tablet {
+    margin: 0 20px;
+  }
+
+  @include laptop {
+    margin: 0 20px;
   }
 
   @include desktop {
@@ -31,15 +36,8 @@ body {
     margin: 0 auto;
   }
 
-  @include laptop {
-    margin: 0 20px;
-  }
-
-  @include tablet {
-    margin: 0 20px;
-  }
-
-  @include mobile {
-    margin: 0 20px;
+  @media (min-width: 1440px) {
+    max-width: 1240px;
+    margin: 0 auto;
   }
 }

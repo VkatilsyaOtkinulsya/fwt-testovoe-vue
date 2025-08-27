@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import SearchIcon from "@/components/icons/SearchIcon.vue";
 import { usePaintingsStore } from "@/stores/paintingsStore.ts";
-import { ref, watch } from "vue";
+import { useThemeStore } from "@/stores/themeStore.ts";
+import { computed, ref, watch } from "vue";
 
 const store = usePaintingsStore();
+
+const themeStore = useThemeStore();
+const theme = computed(() => (themeStore.theme === "dark" ? true : false));
 
 const inputValue = ref(store.search);
 let timer: number | undefined;
@@ -19,8 +23,8 @@ watch(inputValue, (val) => {
 
 <template>
   <div class="search-wrapper">
-    <div class="search">
-      <SearchIcon :style="'margin-right: 12px'" :is-dark="true" />
+    <div :class="['search', theme ? '' : 'theme-light']">
+      <SearchIcon :style="'margin-right: 12px'" :theme="theme" />
       <input
         id="search"
         v-model="inputValue"
@@ -93,5 +97,9 @@ watch(inputValue, (val) => {
     font-size: 12px;
     line-height: 17px;
   }
+}
+
+.theme-light {
+  border: 1px solid var(--primary-border);
 }
 </style>
