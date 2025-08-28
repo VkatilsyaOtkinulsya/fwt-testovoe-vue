@@ -1,0 +1,21 @@
+@use "sass:color";
+
+$primary-white: #ffffff;
+$primary-black: #121212;
+$primary-light-grey: #dedede;
+$primary-dark-grey: #575757;
+
+$secondary-white: #fcfcfc;
+$secondary-black: #1a1818;
+$secondary-grey: #9c9c9c;
+
+$accent-red: #9b4b4b;
+$accent-gold: #ab8956;
+
+@function adjust-lightness($color, $amount: 0%) {
+  @if $amount > 0% {
+    @return color.scale($color, $lightness: $amount);
+  } @else {
+    @return color.scale($color, $lightness: -$amount);
+  }
+}

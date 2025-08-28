@@ -1,0 +1,43 @@
+@use "reset";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  transition:
+    background-color var(--transition-duration),
+    color var(--transition-duration),
+    border-color var(--transition-duration);
+
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: block;
+  box-sizing: border-box;
+  margin: 0 20px; // mobile first
+
+  @include tablet {
+    margin: 0 20px;
+  }
+
+  @include laptop {
+    margin: 0 20px;
+  }
+
+  @include desktop {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+}
