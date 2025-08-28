@@ -21,12 +21,10 @@ const displayedPages = computed(() => {
   let startPage = Math.max(1, currentPage.value - halfVisible);
   const endPage = Math.min(totalPages.value, startPage + maxVisiblePages - 1);
 
-  // Корректируем startPage, если endPage достиг максимума
   if (endPage - startPage + 1 < maxVisiblePages) {
     startPage = Math.max(1, endPage - maxVisiblePages + 1);
   }
 
-  // Добавляем первую страницу, если нужно
   if (startPage > 1) {
     pages.push(1);
     if (startPage > 2) {
@@ -34,12 +32,10 @@ const displayedPages = computed(() => {
     }
   }
 
-  // Добавляем основные страницы
   for (let i = startPage; i <= endPage; i++) {
     pages.push(i);
   }
 
-  // Добавляем последнюю страницу, если нужно
   if (endPage < totalPages.value) {
     if (endPage < totalPages.value - 1) {
       pages.push("...");
@@ -130,6 +126,10 @@ function goToNextPage() {
   font-weight: 300;
   color: var(--primary-text);
 
+  &:hover {
+    background: var(--secondary-bg);
+  }
+
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -143,7 +143,7 @@ function goToNextPage() {
   min-width: auto;
 
   &:hover {
-    background: transparent;
+    background: var(--secondary-bg);
   }
 }
 
